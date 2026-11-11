@@ -3,7 +3,7 @@
 # EeveeSpotifyReincarnated
 
 **Maintainers:** [jaydenjcpy](https://github.com/jaydenjcpy) & [faroukbmiled](https://github.com/faroukbmiled) & [Mod4](https://github.com/M0d-4) <br />
-**Last Update:** `8/19/26` **Spotify Version:** `9.1.74`
+**Last Update:** `10/5/26` **Spotify Version:** `9.1.88`
 
 This tweak makes Spotify think you have a Premium subscription, granting free listening, just like Spotilife, and provides some additional features like custom lyrics.
 
@@ -13,14 +13,13 @@ This tweak makes Spotify think you have a Premium subscription, granting free li
 ## Custom Lyrics Support
 
 **Spotify 9.1.56 and above** - Full custom lyrics functionality is available with the following providers:
-- **Spicy Lyrics**
-- **Musixmatch(Requires Musixmatch Token)**
-- **PetitLyrics**
+- **SpicyLyrics**
+- **Musixmatch\***
 - **LRCLIB**
 - **Genius**
+- **PetitLyrics**
 
-> [!NOTE]
-> All providers work now
+<sup>*Musixmatch requires you to input a user token to retrieve lyrics. EeveeSpotifyReincarnated supports requesting an Anonymous Token to retrieve this functionality.</sup>
 
 ## How to build an EeveeSpotify IPA using Github actions
 > [!NOTE]
@@ -93,7 +92,7 @@ The tweak also sets `trackRowsEnabled` to `true`, allowing you to see track rows
 
 ## Installation
 
-For sideloaded IPAs, we recommend using **SideStore** or certificate-based signing tools like **Ksign** for best compatibility.
+For sideloaded IPAs, we recommend using [**SideStore**](https://sidestore.io), or certificate-based signing tools like [**FlareStore**](https://flarestore.app), [**RyukSign**](https://github.com/faroukbmiled/RyukSign) for best compatibility.
 
 To open Spotify links in sideloaded app, use [OpenSpotifySafariExtension](https://github.com/BillyCurtis/OpenSpotifySafariExtension). Remember to activate it and allow access in Settings > Safari > Extensions.
 
@@ -104,7 +103,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening issues or pull req
 Contributions are welcome — bug fixes, new features, and translations alike. If you'd like to translate the tweak into your language or improve an existing localization, see [TRANSLATING.md](TRANSLATING.md) for the workflow, the rules, and the `Tools/l10n_lint.py` checker that validates your translation before you open a PR.
 
 ## Credits
-Thanks for all of the community's support, also, thanks to all the devs who worked along with us to revive this project Go check the other dev's out:
+Thanks for all of the community's support, also, thanks to all the devs who worked to revive this project. Go check the devs out:
 
 [jaydenjcpy](https://github.com/jaydenjcpy)
 
@@ -117,6 +116,8 @@ Thanks for all of the community's support, also, thanks to all the devs who work
 [Skye](https://github.com/Meeep1) 
 
 [whoeevee](https://github.com/whoeevee) 
+
+[Spikerko](https://github.com/Spikerko)
 
 - This project is a fork of [Meeep1/EeveeSpotifyRevivedPublic](https://github.com/Meeep1/EeveeSpotifyRevivedPublic).
 
