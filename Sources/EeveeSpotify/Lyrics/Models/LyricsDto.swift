@@ -5,13 +5,12 @@ struct LyricsDto {
     var timeSynced: Bool
     var romanization: LyricsRomanizationStatus
     var translation: LyricsTranslationDto?
-    var providerCredit: String? = nil
     
     func toSpotifyLyricsData(source: String) -> LyricsData {
         var lyricsData = LyricsData.with {
             $0.timeSynchronized = timeSynced
             $0.restriction = .unrestricted
-            $0.providedBy = "\(providerCredit ?? source) (EeveeSpotify)"
+            $0.providedBy = "\(source) (EeveeSpotify)"
         }
         
         let shouldRomanize = UserDefaults.lyricsOptions.romanization

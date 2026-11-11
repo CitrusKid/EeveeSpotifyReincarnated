@@ -16,16 +16,16 @@ class BundleHelper {
         if let path = Bundle.main.path(forResource: bundleName, ofType: "bundle"),
            let b = Bundle(path: path) {
             self.bundle = b
-            eeveeLog("[EeveeSpotify] Loaded bundle from main bundle: \(path)")
+            NSLog("[EeveeSpotify] Loaded bundle from main bundle: \(path)")
         } 
         // If not found, try locating in file system (jailbreak path)
         else {
             let jbPath = EeveeJBRootPath("/Library/Application Support/\(bundleName).bundle")
             if let b = Bundle(path: jbPath) {
                 self.bundle = b
-                eeveeLog("[EeveeSpotify] Loaded bundle from filesystem: \(jbPath)")
+                NSLog("[EeveeSpotify] Loaded bundle from filesystem: \(jbPath)")
             } else {
-                eeveeLog("[EeveeSpotify] ERROR: Could not find EeveeSpotify.bundle!")
+                NSLog("[EeveeSpotify] ERROR: Could not find EeveeSpotify.bundle!")
                 self.bundle = nil
             }
         }
@@ -35,7 +35,7 @@ class BundleHelper {
            let enB = Bundle(path: enPath) {
             self.enBundle = enB
         } else {
-            eeveeLog("[EeveeSpotify] WARNING: Could not load en.lproj from bundle")
+            NSLog("[EeveeSpotify] WARNING: Could not load en.lproj from bundle")
             self.enBundle = nil
         }
     }

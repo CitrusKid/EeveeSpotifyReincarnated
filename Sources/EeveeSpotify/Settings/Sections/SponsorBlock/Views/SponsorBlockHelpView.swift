@@ -55,7 +55,7 @@ struct SponsorBlockHelpView: View {
                     .listRowInsets(EdgeInsets())
             }
         }
-        .eeveeSettingsStyle()
+        .listStyle(InsetGroupedListStyle())
         .navigationTitle("howToUseTitle".localized)
     }
 
