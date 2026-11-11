@@ -50,7 +50,7 @@ struct EeveeAppIconPickerView: View {
 
             SpacerView()
         }
-        .eeveeSettingsStyle()
+        .listStyle(InsetGroupedListStyle())
         .onAppear(perform: load)
         .alert(item: Binding<AlertWrapper?>(
             get: { errorMessage.map(AlertWrapper.init) },
@@ -78,13 +78,13 @@ struct EeveeAppIconPickerView: View {
                 Text(icon.id == selectedKey ? "iconSelected".localized : "iconTapToApply".localized)
                     .font(.system(size: 13))
                     .foregroundColor(icon.id == selectedKey
-                                     ? EeveeTheme.accent
+                                     ? EeveeSettingsView.spotifyAccentColor
                                      : .secondary)
             }
             Spacer()
             if icon.id == selectedKey {
                 Image(systemName: "checkmark")
-                    .foregroundColor(EeveeTheme.accent)
+                    .foregroundColor(EeveeSettingsView.spotifyAccentColor)
             }
         }
         .contentShape(Rectangle())
@@ -155,7 +155,7 @@ struct EeveeAppIconPickerView: View {
         UIApplication.shared.setAlternateIconName(icon.alternateName) { error in
             DispatchQueue.main.async {
                 guard let error = error else { return }
-                eeveeLog("[EeveeSpotify][AppIcon] setAlternateIconName(%@) failed: %@",
+                NSLog("[EeveeSpotify][AppIcon] setAlternateIconName(%@) failed: %@",
                       icon.alternateName ?? "nil", error.localizedDescription)
                 selectedKey = previous
                 UserDefaults.standard.set(previous, forKey: selectedKeyDefault)

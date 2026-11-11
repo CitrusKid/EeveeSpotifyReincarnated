@@ -75,21 +75,10 @@ extension EeveeLyricsSettingsViewModel {
                 
                 UserDefaults.lyricsSource = newSource
 
-                // Everything cached for the old provider (prefetch, custom lyrics
-                // view data, Musixmatch cache) must go, or revisiting a song
-                // would keep serving the old provider's lyrics.
-                invalidateLyricsForSourceChange()
-
-                // Spotify keeps its own copy of lyrics it already loaded, which the tweak
-                // can't clear, so the new source is only used everywhere after a restart.
-                if newSource != LyricsLaunchSource.value {
-                    PopUpHelper.showPopUp(
-                        message: "lyrics_source_restart_popup".localized,
-                        buttonText: "restart_now".localized,
-                        secondButtonText: "restart_later".localized,
-                        onPrimaryClick: { exitApplication() }
-                    )
-                }
+                // Clear the Musixmatch in-memory cache so the next track
+                // fetch goes to the new source rather than serving a stale
+                // cached result.
+                MusixmatchLyricsRepository.shared.clearCache()
             }
             .store(in: &cancellables)
     }

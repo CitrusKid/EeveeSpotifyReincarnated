@@ -15,17 +15,17 @@ enum TrueShuffleHook {
         installed = true
 
         guard UserDefaults.trueShuffleEnabled else {
-            eeveeLog("[EeveeSpotify][TrueShuffle] disabled via settings")
+            NSLog("[EeveeSpotify][TrueShuffle] disabled via settings")
             return
         }
 
         guard let cls = findClass(suffix: ".SmartShuffleHandlerImplementation") else {
-            eeveeLog("[EeveeSpotify][TrueShuffle] SmartShuffleHandler not found")
+            NSLog("[EeveeSpotify][TrueShuffle] SmartShuffleHandler not found")
             return
         }
         swizzleBool(cls, NSSelectorFromString("checkRecommendationsEnabled"), takesArg: false)
         swizzleBool(cls, NSSelectorFromString("recommendationIsBeingAddedWithTrackID:"), takesArg: true)
-        eeveeLog("[EeveeSpotify][TrueShuffle] recs killed on %s", class_getName(cls))
+        NSLog("[EeveeSpotify][TrueShuffle] recs killed on %s", class_getName(cls))
     }
 
     private static func findClass(suffix: String) -> AnyClass? {
@@ -45,7 +45,7 @@ enum TrueShuffleHook {
 
     private static func swizzleBool(_ cls: AnyClass, _ sel: Selector, takesArg: Bool) {
         guard let m = class_getInstanceMethod(cls, sel) else {
-            eeveeLog("[EeveeSpotify][TrueShuffle] missing %@ on %s",
+            NSLog("[EeveeSpotify][TrueShuffle] missing %@ on %s",
                   NSStringFromSelector(sel), class_getName(cls))
             return
         }

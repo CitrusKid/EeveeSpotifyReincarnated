@@ -91,7 +91,7 @@ struct SponsorBlockPendingListView: View {
                     .listRowInsets(EdgeInsets())
             }
         }
-        .eeveeSettingsStyle()
+        .listStyle(InsetGroupedListStyle())
         .navigationTitle("sponsorblock_reports_title".localized)
         .onAppear(perform: reload)
         .alert(isPresented: $showingRegenConfirm) {

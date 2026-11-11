@@ -107,7 +107,7 @@ struct SponsorBlockSettingsView: View {
                     .listRowInsets(EdgeInsets())
             }
         }
-        .eeveeSettingsStyle()
+        .listStyle(GroupedListStyle())
         .animation(.default, value: options)
         .onChange(of: options) { newValue in
             UserDefaults.sponsorBlockOptions = newValue

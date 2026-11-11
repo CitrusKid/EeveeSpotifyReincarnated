@@ -61,7 +61,7 @@ struct SponsorBlockAdvancedView: View {
                     .listRowInsets(EdgeInsets())
             }
         }
-        .eeveeSettingsStyle()
+        .listStyle(InsetGroupedListStyle())
         .navigationTitle("advancedTitle".localized)
         .actionSheet(isPresented: $showingResetSheet) { resetSheet() }
     }
